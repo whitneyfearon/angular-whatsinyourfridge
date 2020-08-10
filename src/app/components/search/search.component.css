@@ -35,6 +35,12 @@ img {
   color: black;
 }
 
+.btn-green {
+  background-color: #122a04;
+  color: white;  
+  white-space: normal;  
+}
+
 .btn-green:hover,
 .search-button:hover {
   color: black;
