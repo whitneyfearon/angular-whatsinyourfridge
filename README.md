@@ -5,3 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 # To Setup Angular Project:
   1. npm install
   2. npm start
+  
+  
+# Sign Up With Edamam to get API key and Id
+https://developer.edamam.com/edamam-recipe-api
