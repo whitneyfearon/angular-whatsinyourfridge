@@ -1,0 +1,72 @@
+<div class="search">
+   <button class="border-0" onclick="location.href='https://github.com/whitneyfearon/angular-whatsinyourfridge'" type="button">
+      <fa-icon [icon]="faGithub"></fa-icon> View on Github
+   </button>
+      <form #recipeForm="ngForm" (ngSubmit)="searchRecipe(recipeForm)">
+         <div class="layout">            
+            <img class="mb-4" src="../../../assets/title.png" alt="What's In Your Fridge?">
+            <div class="box"> 
+               <input class="form-control mb-4" type="text" ngModel name="userSearch"
+                  placeholder="eg. shrimp, pasta, coconut milk" />
+               <label for="" class="text-white">Search by diet:</label>
+               <select class="form-control" (change)="selectDiet($event)">
+                  <option value="">Choose</option>
+                  <option value="alcohol-free">Alcohol-Free</option>
+                  <option value="dairy-free">Dairy-Free</option>
+                  <option value="egg-free">Egg-Free</option>
+                  <option value="fish-free">Fish-Free</option>
+                  <option value="gluten-free">Gluten-Free</option>
+                  <option value="keto-friendly">Keto</option>
+                  <option value="kidney-friendly">Kidney-Friendly</option>
+                  <option value="kosher">Kosher</option>
+                  <option value="low-potassium">Low-Potassium</option>
+                  <option value="low-sugar">Low-Sugar</option>
+                  <option value="peanut-free">Peanut-Free</option>
+                  <option value="pescatarian">Pescatarian</option>
+                  <option value="pork-free">Pork-Free</option>
+                  <option value="red-meat-free">Red Meat-Free</option>
+                  <option value="sesame-free">Sesame-Free</option>
+                  <option value="shellfish-free">Shellfish-Free</option>
+                  <option value="soy-free">Soy-Free</option>
+                  <option value="sugar-conscious">Sugar-Conscious</option>
+                  <option value="tree-nut-free">Tree-Nut-Free</option>
+                  <option value="vegan">Vegan</option>
+                  <option value="vegetarian">Vegetarian</option>
+                  <option value="wheat-free">Wheat-Free</option>
+
+               </select>
+               <button class="btn btn-green mt-4" style="padding: 2% 46% 2% 46%;">Search</button>
+            </div>
+         </div>
+      </form>
+   <div class="container">
+      <div class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+         <div class="col-6 mb-4"
+            *ngFor="let result of data | paginate: { id: 'listing_pagination', itemsPerPage: 12, currentPage: page, totalItems: totalRecords }">
+            <div class="card border-0">
+               <img class="card-img" src="{{result.recipe.image}}" alt="Card image">
+               <div class="card-img-overlay text-center">
+                  <h2 class="text-white font-weight-bold text-uppercase recipe-text">{{result.recipe.label}}</h2>
+               </div>
+               <a href="{{result.recipe.url}}" class="btn btn-green rounded-0">View Full Recipe</a>
+            </div>
+         </div>
+      </div>
+   </div>
+   <ng-container *ngIf="show == false && data.length == 0">
+      <div class="layout">
+            <i class="material-icons" style="padding-left: 30%;">
+               sentiment_very_dissatisfied
+            </i>
+            <img class="" src="../../../assets/sorry.png" />       
+      </div>
+   </ng-container>
+
+   <ng-container *ngIf="data.length != 0">
+      <div>
+         <pagination-controls class="page-link text-center" id="listing_pagination" maxSize="5" directionLinks="true"
+            (pageChange)="page = $event">
+         </pagination-controls>
+      </div>
+   </ng-container>
+</div>
