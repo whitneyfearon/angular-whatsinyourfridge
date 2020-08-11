@@ -9,7 +9,7 @@
                <input class="form-control mb-4" type="text" ngModel name="userSearch"
                   placeholder="eg. shrimp, pasta, coconut milk" />
                <label for="" class="text-white">Search by diet:</label>
-               <select class="form-control" (change)="selectDiet($event)">
+               <select class="form-control mb-4" (change)="selectDiet($event)">
                   <option value="">Choose</option>
                   <option value="alcohol-free">Alcohol-Free</option>
                   <option value="dairy-free">Dairy-Free</option>
@@ -35,7 +35,7 @@
                   <option value="wheat-free">Wheat-Free</option>
 
                </select>
-               <button class="btn btn-green mt-4" style="padding: 2% 46% 2% 46%;">Search</button>
+               <button class="btn btn-green mt-4 form-control">Search</button>
             </div>
          </div>
       </form>
