@@ -16,9 +16,10 @@ img {
   display: block; /* remove extra space below image */
 }
 .box {
-  width: 70%;
+  width: 40vw;
   background-color: rgba(0, 0, 0, 0.425);
-  padding: 30px 100px;
+  padding: 3vw 3vw;
+  margin-left: 10vw;
 }
 .layout {
   margin-top: 50px;
@@ -29,6 +30,11 @@ img {
   display: flex;
   justify-content: center;
 }
+
+.form-control{
+  width: 35vw;
+}
+
 
 .btn-grey {
   background-color: #e8e8e8;
